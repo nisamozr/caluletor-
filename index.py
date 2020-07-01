@@ -1,18 +1,31 @@
 from  tkinter import *
+from tkinter import Entry
+
+add = ""
+def callback(number):
+   global add
+   add = number
+   value.set(add)
+
+
+
+#GUI
 
 window = Tk()
-window.title("HTML to PDF Converter")
+window.title("calculator")
 window.geometry("400x500")
 window.config(bg='#b4f0df')
 
-input_field = Entry(window, text='1')
+value = StringVar()
+input_field = Entry(window, textvariable='value')
 input_field.place(height=100)
 input_field.grid(columnspan=4, ipadx=100, ipady=5)
+input_field.focus_set()
 
 
-_1 = Button(window, text='1', fg='white', bg='black', bd=0,  height=2, width=7)
+_1 = Button(window, text='1', fg='white', bg='black', bd=0,  height=2, width=7, command=lambda: callback(1))
 _1.grid(row=2, column=0)
-_2 = Button(window, text='2', fg='white', bg='black', bd=0,  height=2, width=7)
+_2 = Button(window, text='2', fg='white', bg='black', bd=0,  height=2, width=7, command=lambda: callback(2))
 _2.grid(row=2, column=1)
 _3 = Button(window, text='3', fg='white', bg='black', bd=0,  height=2, width=7)
 _3.grid(row=2, column=2)
